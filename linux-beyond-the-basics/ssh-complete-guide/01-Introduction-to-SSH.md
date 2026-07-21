@@ -193,9 +193,9 @@ The SSH server listens for incoming SSH connections and provides secure remote a
 
 On Linux, the server software is typically **OpenSSH Server**, whose daemon is called:
 
-```text
-sshd
-```
+  ```text
+  sshd
+  ```
 
 The SSH server is responsible for:
 
@@ -251,45 +251,37 @@ SSH uses multiple cryptographic techniques rather than relying on a single encry
 
 ### Symmetric Encryption
 
-Symmetric encryption uses the **same secret key** for both encryption and decryption.
+- Symmetric encryption uses the **same secret key** for both encryption and decryption.
+- After the secure session has been established, symmetric encryption is used because it is fast and efficient.
+- Common algorithms include:
 
-After the secure session has been established, symmetric encryption is used because it is fast and efficient.
-
-Common algorithms include:
-
-* AES
-* ChaCha20
+  * AES
+  * ChaCha20
 
 #
 
 ### Asymmetric Encryption
 
-Asymmetric encryption uses a **public key** and a **private key**.
+- Asymmetric encryption uses a **public key** and a **private key**.
+  
+- It is primarily used for:
+  * Identity verification
+  * Secure key exchange
+  * Public key authentication
+- The private key remains secret, while the public key can be safely shared.
 
-It is primarily used for:
-
-* Identity verification
-* Secure key exchange
-* Public key authentication
-
-The private key remains secret, while the public key can be safely shared.
-
-Common algorithms include:
-
-* RSA
-* ECDSA
-* Ed25519
+- Common algorithms include:
+  * RSA
+  * ECDSA
+  * Ed25519
 
 #
 
 ### Hashing
 
 - Hash functions generate a fixed-length output from data.
-
 - SSH uses hashing to verify that transmitted data has not been modified.
-
 - Common algorithms include:
-
     * SHA-2 family
 
 #
@@ -335,9 +327,7 @@ This method is significantly more secure than password authentication and is wid
 ### Keyboard-Interactive Authentication
 
 - The server interacts with the user by presenting one or more authentication prompts.
-
 - This method is commonly integrated with systems such as:
-
     * PAM (Pluggable Authentication Modules)
     * Multi-Factor Authentication (MFA)
 
@@ -346,7 +336,6 @@ This method is significantly more secure than password authentication and is wid
 ### Host-Based Authentication
 
 - Host-based authentication allows one trusted host to authenticate on behalf of its users.
-
 - It is mainly used in controlled enterprise environments.
 
 #
@@ -354,7 +343,6 @@ This method is significantly more secure than password authentication and is wid
 ### Certificate Authentication
 
 - Instead of trusting individual public keys, SSH can authenticate users using digital certificates issued by a trusted Certificate Authority (CA).
-
 - This approach simplifies key management in large environments.
 
 ---
@@ -366,11 +354,10 @@ Two major versions of SSH have existed.
 ### SSH-1
 
 - SSH-1 was the original implementation.
-
 - Although it introduced encrypted remote communication, it contains several known security weaknesses.
-
 - SSH-1 is now considered obsolete and should not be used.
 
+#
 
 ### SSH-2
 
