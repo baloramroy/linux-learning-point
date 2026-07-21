@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Secure Shell (SSH) is a cryptographic network protocol used to securely access and manage remote systems over an unsecured network. It provides encrypted communication between a client and a server, ensuring that sensitive information such as usernames, passwords, commands, and transferred data cannot be easily intercepted or modified by unauthorized parties.
+**Secure Shell (SSH) is a cryptographic network protocol used to securely access and manage remote systems over an unsecured network.** It provides encrypted communication between a client and a server, ensuring that sensitive information such as usernames, passwords, commands, and transferred data cannot be easily intercepted or modified by unauthorized parties.
 
 SSH has become the de facto standard for remote system administration on Linux and UNIX-like operating systems. It is widely used by system administrators, DevOps engineers, cloud engineers, network administrators, and developers for securely managing servers, automating tasks, transferring files, and creating encrypted network tunnels.
 
@@ -59,17 +59,17 @@ SSH protects communication by encrypting all transmitted data.
 
 Before SSH became the industry standard, Telnet was commonly used for remote administration.
 
-The biggest difference between them is **security**.
+- The biggest difference between them is **security**.
 
-| Feature               | SSH       | Telnet      |
-| --------------------- | --------- | ----------- |
-| Encryption            | Yes       | No          |
-| Authentication        | Secure    | Plain text  |
-| Data Protection       | Encrypted | Unencrypted |
-| Default Port          | 22        | 23          |
-| Suitable for Internet | Yes       | No          |
-| Integrity Checking    | Yes       | No          |
-| Confidentiality       | Yes       | No          |
+  | Feature               | SSH       | Telnet      |
+  | --------------------- | --------- | ----------- |
+  | Encryption            | Yes       | No          |
+  | Authentication        | Secure    | Plain text  |
+  | Data Protection       | Encrypted | Unencrypted |
+  | Default Port          | 22        | 23          |
+  | Suitable for Internet | Yes       | No          |
+  | Integrity Checking    | Yes       | No          |
+  | Confidentiality       | Yes       | No          |
 
 #
 
@@ -116,6 +116,8 @@ The communication process consists of three logical layers.
 2. User Authentication Layer
 3. Connection Layer
 
+#
+
 ### Transport Layer
 
 The Transport Layer is responsible for:
@@ -125,6 +127,8 @@ The Transport Layer is responsible for:
 * Performing key exchange
 * Encrypting communication
 * Protecting data integrity
+
+#
 
 ### User Authentication Layer
 
@@ -137,6 +141,8 @@ Authentication methods include:
 * Keyboard-interactive authentication
 * Host-based authentication
 * Certificate authentication
+
+#
 
 ### Connection Layer
 
@@ -278,13 +284,13 @@ Common algorithms include:
 
 ### Hashing
 
-Hash functions generate a fixed-length output from data.
+- Hash functions generate a fixed-length output from data.
 
-SSH uses hashing to verify that transmitted data has not been modified.
+- SSH uses hashing to verify that transmitted data has not been modified.
 
-Common algorithms include:
+- Common algorithms include:
 
-* SHA-2 family
+    * SHA-2 family
 
 #
 
@@ -305,18 +311,13 @@ SSH supports several authentication mechanisms.
 
 ### Password Authentication
 
-The user enters a username and password.
-
-The server verifies the credentials before granting access.
-
-Advantages:
-
-* Simple
-* Easy to configure
-
-Disadvantages:
-
-* Vulnerable to brute-force attacks if not properly protected.
+- The user enters a username and password.
+- The server verifies the credentials before granting access.
+- Advantages:
+    * Simple
+    * Easy to configure
+- Disadvantages:
+    * Vulnerable to brute-force attacks if not properly protected.
 
 #
 
@@ -333,28 +334,28 @@ This method is significantly more secure than password authentication and is wid
 
 ### Keyboard-Interactive Authentication
 
-The server interacts with the user by presenting one or more authentication prompts.
+- The server interacts with the user by presenting one or more authentication prompts.
 
-This method is commonly integrated with systems such as:
+- This method is commonly integrated with systems such as:
 
-* PAM (Pluggable Authentication Modules)
-* Multi-Factor Authentication (MFA)
+    * PAM (Pluggable Authentication Modules)
+    * Multi-Factor Authentication (MFA)
 
 #
 
 ### Host-Based Authentication
 
-Host-based authentication allows one trusted host to authenticate on behalf of its users.
+- Host-based authentication allows one trusted host to authenticate on behalf of its users.
 
-It is mainly used in controlled enterprise environments.
+- It is mainly used in controlled enterprise environments.
 
 #
 
 ### Certificate Authentication
 
-Instead of trusting individual public keys, SSH can authenticate users using digital certificates issued by a trusted Certificate Authority (CA).
+- Instead of trusting individual public keys, SSH can authenticate users using digital certificates issued by a trusted Certificate Authority (CA).
 
-This approach simplifies key management in large environments.
+- This approach simplifies key management in large environments.
 
 ---
 
@@ -364,11 +365,11 @@ Two major versions of SSH have existed.
 
 ### SSH-1
 
-SSH-1 was the original implementation.
+- SSH-1 was the original implementation.
 
-Although it introduced encrypted remote communication, it contains several known security weaknesses.
+- Although it introduced encrypted remote communication, it contains several known security weaknesses.
 
-SSH-1 is now considered obsolete and should not be used.
+- SSH-1 is now considered obsolete and should not be used.
 
 
 ### SSH-2
