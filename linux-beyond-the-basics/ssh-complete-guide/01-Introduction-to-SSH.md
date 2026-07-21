@@ -71,6 +71,8 @@ The biggest difference between them is **security**.
 | Integrity Checking    | Yes       | No          |
 | Confidentiality       | Yes       | No          |
 
+#
+
 ### Telnet
 
 Telnet sends everything in plain text.
@@ -84,13 +86,15 @@ This includes:
 
 Anyone capturing network traffic can read the transmitted information.
 
+#
+
 ### SSH
 
-SSH encrypts the entire communication channel before any sensitive information is exchanged.
+- SSH encrypts the entire communication channel before any sensitive information is exchanged.
 
-Even if network traffic is captured, the transmitted data appears as unreadable encrypted data.
+- Even if network traffic is captured, the transmitted data appears as unreadable encrypted data.
 
-Because of this, SSH has almost completely replaced Telnet in modern environments.
+- Because of this, SSH has almost completely replaced Telnet in modern environments.
 
 ---
 
@@ -175,7 +179,7 @@ Example:
 ssh user@192.168.1.100
 ```
 
----
+#
 
 ### SSH Server
 
@@ -250,7 +254,7 @@ Common algorithms include:
 * AES
 * ChaCha20
 
----
+#
 
 ### Asymmetric Encryption
 
@@ -270,7 +274,7 @@ Common algorithms include:
 * ECDSA
 * Ed25519
 
----
+#
 
 ### Hashing
 
@@ -282,7 +286,7 @@ Common algorithms include:
 
 * SHA-2 family
 
----
+#
 
 ### Message Authentication Code (MAC)
 
@@ -314,7 +318,7 @@ Disadvantages:
 
 * Vulnerable to brute-force attacks if not properly protected.
 
----
+#
 
 ### Public Key Authentication
 
@@ -325,7 +329,7 @@ Public key authentication uses a cryptographic key pair.
 
 This method is significantly more secure than password authentication and is widely used in production environments.
 
----
+#
 
 ### Keyboard-Interactive Authentication
 
@@ -336,7 +340,7 @@ This method is commonly integrated with systems such as:
 * PAM (Pluggable Authentication Modules)
 * Multi-Factor Authentication (MFA)
 
----
+#
 
 ### Host-Based Authentication
 
@@ -344,7 +348,7 @@ Host-based authentication allows one trusted host to authenticate on behalf of i
 
 It is mainly used in controlled enterprise environments.
 
----
+#
 
 ### Certificate Authentication
 
