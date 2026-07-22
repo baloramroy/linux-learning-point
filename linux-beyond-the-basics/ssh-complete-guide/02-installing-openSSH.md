@@ -159,7 +159,9 @@ Depending on the distribution, this may also print to **stderr**.
 
 ---
 
-## Enable SSH Service
+## Manage SSH Service
+
+### Enable SSH Service
 
 After installing the server package, enable the SSH service so it starts automatically during system boot.
 
@@ -173,9 +175,9 @@ Example output:
 Created symlink /etc/systemd/system/multi-user.target.wants/sshd.service → /usr/lib/systemd/system/sshd.service
 ```
 
----
+#
 
-## Start SSH Service
+### Start SSH Service
 
 Start the SSH server immediately without rebooting.
 
@@ -183,9 +185,9 @@ Start the SSH server immediately without rebooting.
 sudo systemctl start sshd
 ```
 
----
+#
 
-## Stop SSH Service
+### Stop SSH Service
 
 To stop the SSH service:
 
@@ -195,9 +197,9 @@ sudo systemctl stop sshd
 
 Stopping the SSH service disconnects new incoming SSH connections. Existing sessions may also terminate depending on the system configuration.
 
----
+#
 
-## Restart SSH Service
+### Restart SSH Service
 
 Restart the service after making configuration changes.
 
@@ -207,9 +209,9 @@ sudo systemctl restart sshd
 
 This stops and starts the service again.
 
----
+#
 
-## Reload SSH Configuration
+### Reload SSH Configuration
 
 If only the configuration file has changed, reload the service instead of restarting it.
 
