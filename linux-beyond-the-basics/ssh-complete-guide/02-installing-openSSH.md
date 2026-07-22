@@ -11,13 +11,13 @@ OpenSSH consists of two main components:
 
 Most Linux distributions include the OpenSSH client by default, while the OpenSSH server package may need to be installed separately.
 
-#
+---
 
-# Installing OpenSSH Server
+## Installing OpenSSH Server
 
 The OpenSSH server package provides the `sshd` (SSH Daemon) service, which listens for incoming SSH connections.
 
-## RHEL, CentOS, Rocky Linux, AlmaLinux
+### RHEL, CentOS, Rocky Linux, AlmaLinux
 
 Install the server package using `dnf`:
 
@@ -33,7 +33,7 @@ sudo yum install openssh-server
 
 #
 
-## Ubuntu and Debian
+### Ubuntu and Debian
 
 ```bash
 sudo apt update
@@ -42,13 +42,13 @@ sudo apt install openssh-server
 
 #
 
-## SUSE Linux
+### SUSE Linux
 
 ```bash
 sudo zypper install openssh
 ```
 
-#
+---
 
 ## Verify Installation
 
@@ -72,15 +72,15 @@ openssh-server-9.x.x
 dpkg -l | grep openssh-server
 ```
 
-#
+---
 
-# Installing OpenSSH Client
+## Installing OpenSSH Client
 
 The client package allows a system to connect to remote SSH servers.
 
 In many Linux distributions, it is installed by default. If not, install it using the appropriate package manager.
 
-## RHEL, CentOS, Rocky Linux, AlmaLinux
+### RHEL, CentOS, Rocky Linux, AlmaLinux
 
 ```bash
 sudo dnf install openssh-clients
@@ -94,7 +94,7 @@ sudo yum install openssh-clients
 
 #
 
-## Ubuntu and Debian
+### Ubuntu and Debian
 
 ```bash
 sudo apt update
@@ -103,15 +103,15 @@ sudo apt install openssh-client
 
 #
 
-## SUSE Linux
+### SUSE Linux
 
 ```bash
 sudo zypper install openssh
 ```
 
-#
+---
 
-# Verify Client Installation
+## Verify Client Installation
 
 Check whether the SSH client is available.
 
@@ -131,9 +131,9 @@ Example output:
 /usr/bin/ssh
 ```
 
-#
+---
 
-# Check SSH Version
+## Check SSH Version
 
 To display the installed OpenSSH client version:
 
@@ -157,9 +157,9 @@ sshd -V
 
 Depending on the distribution, this may also print to **stderr**.
 
-#
+---
 
-# Enable SSH Service
+## Enable SSH Service
 
 After installing the server package, enable the SSH service so it starts automatically during system boot.
 
@@ -173,9 +173,9 @@ Example output:
 Created symlink /etc/systemd/system/multi-user.target.wants/sshd.service → /usr/lib/systemd/system/sshd.service
 ```
 
-#
+---
 
-# Start SSH Service
+## Start SSH Service
 
 Start the SSH server immediately without rebooting.
 
@@ -183,9 +183,9 @@ Start the SSH server immediately without rebooting.
 sudo systemctl start sshd
 ```
 
-#
+---
 
-# Stop SSH Service
+## Stop SSH Service
 
 To stop the SSH service:
 
@@ -195,9 +195,9 @@ sudo systemctl stop sshd
 
 Stopping the SSH service disconnects new incoming SSH connections. Existing sessions may also terminate depending on the system configuration.
 
-#
+---
 
-# Restart SSH Service
+## Restart SSH Service
 
 Restart the service after making configuration changes.
 
@@ -207,9 +207,9 @@ sudo systemctl restart sshd
 
 This stops and starts the service again.
 
-#
+---
 
-# Reload SSH Configuration
+## Reload SSH Configuration
 
 If only the configuration file has changed, reload the service instead of restarting it.
 
@@ -219,9 +219,9 @@ sudo systemctl reload sshd
 
 Reloading applies configuration changes without completely restarting the daemon, when supported.
 
-#
+---
 
-# Check SSH Service Status
+## Check SSH Service Status
 
 Display the current service status.
 
@@ -244,9 +244,9 @@ The status output provides information such as:
 * Startup time
 * Recent log messages
 
-#
+---
 
-# Check Whether SSH Is Listening
+## Check Whether SSH Is Listening
 
 Verify that the SSH server is listening for incoming connections.
 
@@ -268,9 +268,9 @@ Alternatively:
 sudo ss -tlnp | grep :22
 ```
 
-#
+---
 
-# Verify Firewall Access
+## Verify Firewall Access
 
 If a firewall is enabled, ensure SSH traffic is allowed.
 
@@ -293,9 +293,9 @@ sudo firewall-cmd --permanent --add-service=ssh
 sudo firewall-cmd --reload
 ```
 
-#
+---
 
-# Verify SELinux (RHEL-based Systems)
+## Verify SELinux (RHEL-based Systems)
 
 If SELinux is enabled and SSH is configured to use a non-default port, verify that SELinux permits the port.
 
@@ -307,9 +307,9 @@ sudo semanage port -l | grep ssh
 
 > This topic will be covered in more detail in the SSH Server Configuration article.
 
-#
+---
 
-# Test the SSH Server
+## Test the SSH Server
 
 If testing locally:
 
@@ -337,11 +337,11 @@ ssh admin@192.168.1.10
 
 If the connection succeeds, the server is installed and functioning correctly.
 
-#
+---
 
-# Common Installation Issues
+## Common Installation Issues
 
-## SSH service is not running
+### SSH service is not running
 
 Symptoms:
 
@@ -357,7 +357,7 @@ sudo systemctl start sshd
 
 #
 
-## OpenSSH server package is not installed
+### OpenSSH server package is not installed
 
 Symptoms:
 
@@ -371,7 +371,7 @@ Install the OpenSSH server package using the appropriate package manager.
 
 #
 
-## Firewall blocks SSH
+### Firewall blocks SSH
 
 Symptoms:
 
@@ -385,7 +385,7 @@ Allow the SSH service through the firewall.
 
 #
 
-## Incorrect SSH Port
+### Incorrect SSH Port
 
 If the server has been configured to use a different port, specify it when connecting.
 
@@ -395,9 +395,9 @@ Example:
 ssh -p 2222 username@server-ip
 ```
 
-#
+---
 
-# Best Practices
+## Best Practices
 
 * Keep OpenSSH updated with security patches.
 * Enable the SSH service only when remote access is required.
@@ -408,8 +408,10 @@ ssh -p 2222 username@server-ip
 * Verify SELinux settings when using custom SSH ports.
 * Avoid modifying the default configuration until the installation has been verified.
 
-#
+---
 
-# Summary
+## Summary
 
 Installing OpenSSH involves installing the appropriate client and server packages, verifying the installation, enabling and starting the `sshd` service, confirming that the service is listening for connections, and testing remote access. Once the installation has been verified, the system is ready for further configuration, including authentication methods, configuration files, and security hardening, which are covered in subsequent articles.
+
+---
